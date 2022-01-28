@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/enomo-react/static/css/main.11d21d66.css",
+    "main.js": "/enomo-react/static/js/main.5babdfcf.js",
+    "static/js/787.48a98fce.chunk.js": "/enomo-react/static/js/787.48a98fce.chunk.js",
+    "static/media/image.png": "/enomo-react/static/media/image.4358778a9ab9aab6e6aa.png",
+    "index.html": "/enomo-react/index.html",
+    "main.11d21d66.css.map": "/enomo-react/static/css/main.11d21d66.css.map",
+    "main.5babdfcf.js.map": "/enomo-react/static/js/main.5babdfcf.js.map",
+    "787.48a98fce.chunk.js.map": "/enomo-react/static/js/787.48a98fce.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.11d21d66.css",
+    "static/js/main.5babdfcf.js"
+  ]
+}
