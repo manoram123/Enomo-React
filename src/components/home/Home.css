@@ -1,0 +1,13 @@
+.slogan-text {
+  font-size: 3em;
+  font-weight: 700;
+}
+
+.content-text {
+  height: 50ch;
+}
+
+.content-image img {
+  height: 40ch;
+  width: 40ch;
+}

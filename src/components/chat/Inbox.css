@@ -1,0 +1,72 @@
+.msg {
+  max-width: 60vw;
+}
+
+.receive-text {
+  background: #7a7a7a;
+}
+
+.sent .msg p {
+  background: #23a2fc;
+}
+
+.message-container {
+  position: relative;
+  height: 70vh;
+}
+
+.is-typing {
+  display: none;
+  position: absolute;
+  bottom: 0;
+}
+
+.input-div {
+  border-bottom: 2px solid #afafaf;
+  color: #7a7a7a;
+}
+
+.input-div-lg {
+  background: #d4d4d4;
+  border: none;
+}
+
+.text-input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 0.8em;
+}
+
+.send-btn {
+  outline: none;
+  border: none;
+  color: #23a2fc;
+  background: transparent;
+}
+
+.send-btn:hover {
+  color: #55b1f3;
+}
+
+.action-btn {
+  outline: none;
+  border: none;
+  color: #afafaf;
+  background: transparent;
+  transition: 0.3s;
+}
+
+.action-btn:hover {
+  color: #7e7e7e;
+}
+/* .box {
+  background: linear-gradient(
+    #5294ff,
+    #42ff68,
+    green,
+    #ff42d6,
+    #ffc917,
+    #ff6c17
+  );
+} */

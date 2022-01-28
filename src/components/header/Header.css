@@ -1,0 +1,28 @@
+.logo {
+  font-size: 2em;
+  font-weight: 700;
+  color: #037dff;
+}
+
+.logo-prefix {
+  font-weight: 600;
+  color: #afafaf;
+}
+
+.header {
+  border-bottom: 2px solid #afafaf;
+  height: 7ch;
+  background: #fff;
+  width: 100%;
+}
+
+.link {
+  text-decoration: none;
+  color: #7e7e7e;
+  transition: 0.3s;
+  display: block;
+}
+
+.link:hover {
+  color: #3b3b3b;
+}

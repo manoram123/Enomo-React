@@ -1,0 +1,180 @@
+.container {
+  color: #7e7e7e;
+}
+
+.middle-sec {
+  border-left: 2px solid #afafaf;
+  border-right: 2px solid #afafaf;
+  height: 100vh;
+}
+
+.profile-image {
+  height: 4ch;
+  width: 4ch;
+}
+
+.profile-image-lg {
+  height: 8ch;
+  width: 8ch;
+}
+.profile-image-lg div {
+  font-size: 3em;
+}
+.side-nav {
+  background: #c4c4c4;
+}
+
+.side-nav ul li {
+  font-size: 1.2em;
+}
+
+.sidebar {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.badge {
+  font-size: 0.6em;
+  font-weight: lighter;
+}
+
+.friends {
+  text-decoration: none;
+  color: #7e7e7e;
+}
+
+.friends:hover {
+  color: #3b3b3b;
+}
+
+.box {
+  transition: 2s;
+}
+
+.friend {
+  border-top: 1px solid #afafaf;
+}
+
+.actions a {
+  color: #7e7e7e;
+}
+
+.actions a:hover {
+  color: #afafaf;
+}
+
+.tab-option {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #7e7e7e;
+  font-size: 0.9em;
+  transition: 0.3s;
+}
+.tab-option:hover {
+  color: #fff;
+  background: #afafaf;
+}
+
+.tab-option-active {
+  color: #fff;
+  background: #afafaf;
+}
+
+.tab {
+  overflow-y: scroll;
+  height: 86vh;
+}
+
+.tab::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-all {
+  display: block;
+}
+
+.tab-online {
+  display: none;
+}
+.tab-pending {
+  display: none;
+}
+.tab-add-friend {
+  display: none;
+}
+
+.notification-identifier {
+  display: none;
+  height: 0.6em;
+  width: 0.6em;
+  background: #ff1c33;
+}
+
+.accepted-notifier {
+  display: none;
+}
+
+.friend {
+  transition: 2s;
+}
+
+.friend-suggestion {
+  transition: 2s;
+}
+
+.hover-box {
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.hover-box:hover {
+  background: #e9e9e9;
+}
+
+.message {
+  width: 26ch;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-page {
+  border-left: 2px solid #afafaf;
+  height: 100vh;
+}
+
+.profile-card {
+  background: #e9e9e9;
+}
+
+.profile-picture-div {
+  position: relative;
+}
+
+.online-tag {
+  height: 16px;
+  width: 16px;
+  background-color: #1afc06;
+  position: absolute;
+  border: 3.5px solid #e9e9e9;
+  bottom: -2px;
+  right: -5px;
+}
+
+.edit-btn {
+  height: 3ch;
+  background-color: #23a2fc;
+  color: #fff;
+  outline: none;
+  border: none;
+  font-size: 0.8em;
+}
+
+.profile-section-info {
+  background: #fff;
+}

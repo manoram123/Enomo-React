@@ -1,0 +1,42 @@
+.login-card {
+  color: #7e7e7e;
+}
+
+.text-login {
+  color: #7a7a7a;
+  font-size: 2em;
+}
+
+.login-btn {
+  border: none;
+  outline: none;
+  background: #32fc64;
+  transition: 0.3s;
+  color: #fff;
+}
+
+.login-btn:hover {
+  background: #10e946;
+}
+
+.input-div {
+  border-bottom: 2px solid #afafaf;
+  color: #7a7a7a;
+}
+
+.text-input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 0.8em;
+}
+
+.login-card {
+  background: #fff;
+  height: 93.5vh;
+}
+
+.label-text {
+  color: #7a7a7a;
+  font-size: 0.9em;
+}
