@@ -6,7 +6,7 @@
   background: #7a7a7a;
 }
 
-.sent .msg p {
+.sent .msg .sent-text {
   background: #23a2fc;
 }
 
@@ -17,8 +17,8 @@
 
 .is-typing {
   display: none;
-  position: absolute;
-  bottom: 0;
+  /* position: absolute;
+  bottom: 0; */
 }
 
 .input-div {
@@ -59,6 +59,12 @@
 
 .action-btn:hover {
   color: #7e7e7e;
+}
+
+.unsend-btn {
+  height: 15px;
+  width: 15px;
+  font-size: 0.6em;
 }
 /* .box {
   background: linear-gradient(

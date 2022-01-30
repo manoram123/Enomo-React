@@ -146,6 +146,11 @@
 .profile-page {
   border-left: 2px solid #afafaf;
   height: 100vh;
+  overflow-y: scroll;
+}
+
+.profile-page::-webkit-scrollbar {
+  display: none;
 }
 
 .profile-card {
@@ -177,4 +182,14 @@
 
 .profile-section-info {
   background: #fff;
+}
+
+.logout-btn {
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  color: #fff;
+  background: #7e7e7e;
 }

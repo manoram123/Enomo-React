@@ -50,6 +50,7 @@ const Inbox = () => {
         });
     }, [])
 
+
     // Getting contacts from database
 
     const [rooms, setRooms] = useState([])
@@ -61,6 +62,7 @@ const Inbox = () => {
             // console.log(result.data.chats)
         })
     }, []);
+
 
     useEffect(() => {
         for (var i = 0; i <= rooms.length; i++) {
@@ -130,6 +132,32 @@ const Inbox = () => {
         $('#message-form')[0].reset();
         $(`#${messageData.sentTo}`).html(`You: ${messageData.message}`)
         setMessage("");
+    }
+
+    const sendImageMessage = (e) => {
+        let image = e.target.files[0];
+        const data = new FormData();
+        data.append("image", image);
+        data.append("roomId", roomId);
+        data.append("message", "Sent an image");
+        data.append("sentBy", user.userId);
+        data.append("sentTo", id);
+        data.append("data", new Date(Date.now()));
+        data.append("time", formatAMPM(new Date(Date.now())));
+
+
+        console.log(image);
+        axios.post("/send-image-message", data).then(function (result) {
+            // if (result.data.type === 'success') {
+            //     console.log(result.data);
+            //     // localStorage.setItem('token', token);
+            //     window.location.href = `/profile/${userId}`
+            //     toast.success(result.data.message, { position: toast.POSITION.TOP_RIGHT });
+            // }
+            // else {
+            //     toast.error(result.data.message, { position: toast.POSITION.TOP_RIGHT });
+            // }
+        })
     }
 
     useEffect(() => {
@@ -280,14 +308,50 @@ const Inbox = () => {
                                             return (
                                                 <div key={index + 8}>
                                                     <div key={index} className='d-flex'>
-                                                        <div key={index + 1} className='profile-image box rounded d-flex align-items-center'><div key={index + 2} className='text-light text-center fw-bold mx-auto'>{val.username.charAt(0).toUpperCase()}</div></div>
+                                                        {
+                                                            val?.image ?
+                                                                <>
 
+                                                                    <div className='d-flex profile-picture-div'>
+                                                                        <img src={`http://localhost:90/add-friend/${val?.image}`} className='rounded img-fluid' style={{ height: "4ch", width: "4ch", objectFit: "cover" }} alt="" />
+                                                                        {
+                                                                            val?.isActive ?
+                                                                                <>
+                                                                                    <div className='rounded-circle online-tag' style={{ border: "3px solid #fff" }}></div>
+                                                                                </>
+                                                                                :
+                                                                                <>
+                                                                                </>
+                                                                        }                                                                     </div>
+                                                                </> :
+                                                                <>
+                                                                    <div className='d-flex profile-picture-div'>
+                                                                        <div className='profile-image bg-info rounded d-flex align-items-center'><div className='text-light text-center fw-bold mx-auto'>{val?.username.charAt(0).toUpperCase()}</div></div>
+                                                                        {
+                                                                            val?.isActive ?
+                                                                                <>
+                                                                                    <div className='rounded-circle online-tag' style={{ border: "3px solid #fff" }}></div>
+                                                                                </>
+                                                                                :
+                                                                                <>
+                                                                                </>
+                                                                        }                                                                     </div>
+
+                                                                </>
+
+                                                        }
                                                         <div key={index + 3} className=''>
                                                             <span key={index + 4} className='fw-bold mx-1 mt-2'>{val.username}</span>
                                                             <small key={index + 5} className='mx-1 d-block'>{val.firstName} {val.lastName}</small>
                                                         </div>
                                                     </div>
-                                                    <small key={index + 9} className='mx-1 d-block'><i key={index + 10} className='fas fa-circle text-success me-1' style={{ "fontSize": ".4em" }}></i><small key={index + 11}>Online</small></small>
+                                                    {
+                                                        val?.isActive ?
+                                                            <small key={index + 9} className='mx-1 d-block'><small key={index + 11}>Online</small></small>
+                                                            :
+                                                            <small key={index + 9} className='mx-1 d-block'><small key={index + 11}>Offline</small></small>
+
+                                                    }
                                                 </div>
 
                                             )
@@ -301,34 +365,57 @@ const Inbox = () => {
                                 {
                                     messages.map((val, index) => {
                                         if (val.sentTo === user.userId) {
-                                            return (
-                                                // <p key={index} className='text-muted p-0 rounded border px-1 border-secondary'>{val.message}</p>
-                                                <div className="receive d-flex" key={index}>
-                                                    <div className="msg" key={index + 1}>
-                                                        <p className='receive-text text-light mx-1 px-2 py-1 rounded' key={index + 2}>{val.message}</p>
-                                                        {/* <small class='timestamp mx-1 px-2 py-1' key={index}>{val.time}</small> */}
-                                                    </div>
+                                            return (<>
+                                                <small className='m-0'><small>{val.sentBy.username}</small></small>
+                                                <div key={index + 12} className='receive d-flex'>
+                                                    <span key={index + 13} className='msg me-auto'>
+                                                        <small key={index + 20} className='d-flex align-items-end'>
+                                                            {
+                                                                val?.image ?
+                                                                    <div className='border rounded'>
+                                                                        <img src={`http://localhost:90/inbox/${val.image}`} className='rounded' alt="" style={{ height: "15ch", width: "100%", objectFit: "contain" }} />
+                                                                    </div>
+                                                                    :
+                                                                    <small key={index + 14} className='receive-text d-block px-2 rounded py-1 my-1 text-light'>{val.message}</small>
+                                                            }
+                                                            <small key={index + 21} className='mx-1'><small key={index + 22}>{val.time}</small></small>
+                                                        </small>
+                                                    </span>
                                                 </div>
+                                            </>
+
                                             )
                                         } else {
-                                            return (<div className="sent d-flex" key={index + 3}>
-                                                <div className="msg ms-auto" key={index + 4}>
-                                                    <p className='text-light mx-1 px-2 py-1 rounded' key={index + 5}>{val.message}</p>
-                                                    {/* <span class='timestamp mx-1 px-2 py-1' key={index}>{{ m.timestamp | timesince }} ago</span> */}
+                                            return (
+                                                <div key={index + 15} className='sent d-flex'>
+                                                    <span key={index + 16} className='msg ms-auto'>
+                                                        <small key={index + 20} className='d-flex align-items-end'>
+                                                            <small key={index + 21} className='mx-1'><small key={index + 22}>{val.time}</small></small>
+                                                            {
+                                                                val?.image ?
+                                                                    <div className='border rounded'>
+                                                                        <img src={`http://localhost:90/inbox/${val.image}`} className='rounded' alt="" style={{ height: "15ch", width: "100%", objectFit: "contain" }} />
+                                                                    </div>
+                                                                    :
+                                                                    <small key={index + 14} className='d-block px-2 rounded py-1 my-1 text-light sent-text'>{val.message}</small>
+                                                            }
+                                                        </small>
+                                                    </span>
                                                 </div>
-                                            </div>)
+                                            )
                                         }
                                     })
                                 }
-                                <div className='is-typing mb-2'><small>Typing...</small></div>
                             </ScrollToBottom>
+                            <div className='is-typing m-0 mb-1'><small>Typing...</small></div>
                             <hr className='container p-0 m-0' />
                             <form id='message-form' className='mt-2' onSubmit={sendMessage}>
                                 <div className='input-group col-12'>
                                     <div className='input-div w-100 d-flex'>
                                         <input type="text" onChange={(e) => setMessage(e.target.value)} onFocus={isTyping} onBlur={isNotTyping} placeholder='Type message here...' className='text-input w-100' />
-                                        <button type='submit' className='action-btn py-2 px-2'><i className='fas fa-paperclip d-block'></i></button>
-                                        <button type='submit' className='action-btn py-2 px-1'><i className='fas fa-smile d-block'></i></button>
+                                        <input id="image-message" hidden accept='image/*' onChange={sendImageMessage} type="file" />
+                                        <button onClick={() => { document.getElementById('image-message').click() }} type='button' className='action-btn py-2 px-2'><i className='fas fa-paperclip d-block'></i></button>
+                                        <button type='button' className='action-btn py-2 px-1'><i className='fas fa-smile d-block'></i></button>
                                         <button type='submit' className='send-btn py-2 px-3'><i className='fas fa-paper-plane d-block'></i></button>
                                     </div>
                                 </div>

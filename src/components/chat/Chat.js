@@ -100,7 +100,7 @@ const Chat = () => {
                                 </> :
                                 <>
                                     <div className='d-flex profile-picture-div'>
-                                        <div className='profile-image bg-info rounded d-flex align-items-center'><div className='text-light text-center fw-bold mx-auto'>{duser?.username.charAt(0).toUpperCase()}</div></div>
+                                        <div className='profile-image box rounded d-flex align-items-center'><div className='text-light text-center fw-bold mx-auto'>{duser?.username.charAt(0).toUpperCase()}</div></div>
                                         <div className='rounded-circle online-tag' style={{ border: "3px solid #fff" }}></div>
                                     </div>
 
@@ -198,7 +198,7 @@ const Chat = () => {
                                             </div>
                                         </> :
                                         <>
-                                            <div className='box rounded profile-picture-div profile-image-lg rounded d-flex align-items-center'>
+                                            <div className='box rounded profile-picture-div mx-auto profile-image-lg rounded d-flex align-items-center'>
                                                 <p className='m-0 mx-auto fw-bold text-light' style={{ fontSize: "2em" }}>{duser?.username?.charAt(0).toUpperCase()}</p>
                                             </div>
                                         </>

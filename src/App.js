@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Home from './components/home/Home';
@@ -12,7 +12,7 @@ import './App.css';
 import AOS from 'aos';
 import Profile from './components/profile/Profile';
 
-
+const token = localStorage.getItem('token')
 function App() {
 
 
@@ -22,7 +22,12 @@ function App() {
             <ToastContainer className='mt-5'></ToastContainer>
             <Router>
                 <Routes>
-                    <Route path='/' element={<Home></Home>}></Route>
+                    <Route path='/' element={
+                        !token ?
+                            <Navigate to="/login" /> :
+                            <Navigate to="/chat" />
+                    }>
+                    </Route>
                     <Route path='/login' element={<Login></Login>}></Route>
                     <Route path='/register' element={<Register></Register>}></Route>
                     <Route path='/chat' element={<Chat></Chat>}></Route>
